@@ -163,8 +163,8 @@ public class LugaresDb extends SQLiteOpenHelper {
 	public Vector<Categoria> cargarCategoriasDesdeBD(boolean opcSeleccionar) {
 		Vector<Categoria> resultado = new Vector<Categoria>();
 		SQLiteDatabase db = this.getReadableDatabase();
-		Cursor cursor = db.rawQuery(
-				"SELECT * FROM Categoria ORDER BY cat_id", null);
+		Cursor cursor = db.rawQuery("SELECT * FROM Categoria ORDER BY cat_id",
+				null);
 		if (opcSeleccionar) {
 			resultado.add(new Categoria(0L, "Seleccionar...", "icono_nd"));
 		}
@@ -210,11 +210,11 @@ public class LugaresDb extends SQLiteOpenHelper {
 		db.update("Lugar", reg, "lug_id=" + editLugar.getId(), null);
 
 	}
-	
+
 	public void eliminarLugar(Lugar eliminarLugar) {
 		// TODO Auto-generated method stub
 		SQLiteDatabase db = this.getWritableDatabase();
-		db.execSQL("DELETE FROM Lugar WHERE lug_id="+eliminarLugar.getId());
+		db.execSQL("DELETE FROM Lugar WHERE lug_id=" + eliminarLugar.getId());
 	}
 
 	public void createCategoria(Categoria newCategoria) {
@@ -243,7 +243,8 @@ public class LugaresDb extends SQLiteOpenHelper {
 	public void eliminarCategoria(Categoria eliminarCategoria) {
 		// TODO Auto-generated method stub
 		SQLiteDatabase db = this.getWritableDatabase();
-		db.execSQL("DELETE FROM Categoria WHERE cat_id="+eliminarCategoria.getId());
+		db.execSQL("DELETE FROM Categoria WHERE cat_id="
+				+ eliminarCategoria.getId());
 	}
 
 }

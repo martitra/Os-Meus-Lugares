@@ -26,8 +26,9 @@ public class ListCategoriasAdapter extends BaseAdapter {
 	private Vector<Categoria> lista;
 	private LugaresDb lugaresDb;
 	private boolean verInfoAmpliada;
-	
+
 	private RecursoIcono recursoIcono;
+
 	/**
 	 * 
 	 * @param activity
@@ -42,6 +43,7 @@ public class ListCategoriasAdapter extends BaseAdapter {
 		this.recursoIcono = new RecursoIcono(activity);
 
 	}
+
 	public void actualizarDesdeBd() throws SQLException {
 		lugaresDb = new LugaresDb(activity);
 		this.lista = lugaresDb.cargarCategoriasDesdeBD(false);
@@ -89,18 +91,19 @@ public class ListCategoriasAdapter extends BaseAdapter {
 		LayoutInflater inflater = activity.getLayoutInflater();
 		View view;
 		view = inflater.inflate(R.layout.elemento_lista_categorias, null, true);
-		
+
 		TextView textViewNombre = (TextView) view
-			.findViewById(R.id.textViewNombre);
-		ImageView imgViewIcono = (ImageView) view.findViewById(R.id.iconoCat);;
-		
+				.findViewById(R.id.textViewNombre);
+		ImageView imgViewIcono = (ImageView) view.findViewById(R.id.iconoCat);
+		;
+
 		Categoria categoria = (Categoria) lista.elementAt(position);
 		textViewNombre.setText(categoria.getNombre());
-		
+
 		Drawable icon = recursoIcono.obtenDrawableIcon(categoria.getIcon());
 		imgViewIcono.setImageDrawable(icon);
-		
+
 		return view;
 	}
-	
+
 }

@@ -202,8 +202,8 @@ public class EditLugarActivity extends Activity {
 		int id = item.getItemId();
 		switch (id) {
 
-		case R.id.action_settings: 
-		return true;
+		case R.id.action_settings:
+			return true;
 
 		case R.id.add_categorias:
 			lanzarNuevasCategorias();
@@ -211,8 +211,7 @@ public class EditLugarActivity extends Activity {
 		default:
 			break;
 		}
-		
-		
+
 		return super.onOptionsItemSelected(item);
 	}
 
@@ -221,7 +220,7 @@ public class EditLugarActivity extends Activity {
 		extras.clear();
 		extras.putBoolean("add", true);
 		Intent i = new Intent(this, EditCategoriasActivity.class);
-		i.putExtras(extras);//pasar add
+		i.putExtras(extras);// pasar add
 		startActivity(i);
 	}
 }

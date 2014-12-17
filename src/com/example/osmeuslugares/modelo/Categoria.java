@@ -62,22 +62,25 @@ public class Categoria {
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
-	
+
 	/**
 	 * @return the icon
 	 */
 	public String getIcon() {
 		return icon;
 	}
-	
+
 	/**
-	 * @param icon the icon to set
+	 * @param icon
+	 *            the icon to set
 	 */
 	public void setIcon(String icon) {
 		this.icon = icon;
 	}
-	
-	/* (non-Javadoc)
+
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see java.lang.Object#toString()
 	 */
 	@Override
@@ -104,7 +107,7 @@ public class Categoria {
 		}
 		return false;
 	}
-	
+
 	public ContentValues getContentValues() {
 		ContentValues reg = new ContentValues();
 		reg.put(C_NOMBRE, nombre);
@@ -114,7 +117,7 @@ public class Categoria {
 
 	public Bundle getBundle() {
 		Bundle bundle = new Bundle();
-		bundle.putLong(C_ID,id);
+		bundle.putLong(C_ID, id);
 		bundle.putString(C_NOMBRE, nombre);
 		bundle.putString(C_ICON, icon);
 		return bundle;
@@ -126,7 +129,5 @@ public class Categoria {
 		nombre = bundle.getString(C_NOMBRE);
 		icon = bundle.getString(C_ICON);
 	}
-
-
 
 }

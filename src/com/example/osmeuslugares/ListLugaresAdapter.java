@@ -8,8 +8,6 @@ import com.example.osmeuslugares.modelo.Lugar;
 import com.example.osmeuslugares.modelo.basedatos.LugaresDb;
 import com.example.osmeuslugares.modelo.basedatos.RecursoIcono;
 
-
-
 import android.app.Activity;
 import android.content.res.Resources;
 import android.content.res.TypedArray;
@@ -29,7 +27,7 @@ public class ListLugaresAdapter extends BaseAdapter {
 	private LugaresDb lugaresDb;
 	private boolean verInfoAmpliada;
 	private RecursoIcono recursoIcono;
-	
+
 	/**
 	 * 
 	 * @param activity
@@ -109,7 +107,7 @@ public class ListLugaresAdapter extends BaseAdapter {
 		LayoutInflater inflater = activity.getLayoutInflater();
 		View view;
 		if (isVerInfoAmpliada()) {
-			//modificar el if adaptarlo a lo que queremos, información ampliada
+			// modificar el if adaptarlo a lo que queremos, información ampliada
 			view = inflater.inflate(R.layout.elemento_lista, null, true);
 			TextView textViewTitulo = (TextView) view
 					.findViewById(R.id.textViewTitulo);
@@ -119,26 +117,27 @@ public class ListLugaresAdapter extends BaseAdapter {
 			Lugar lugar = (Lugar) lista.elementAt(position);
 			textViewTitulo.setText(lugar.getNombre());
 			textViewInfo.setText(lugar.toString());
-			Drawable icon = recursoIcono.obtenDrawableIcon(lugar.getCategoria().getIcon());
+			Drawable icon = recursoIcono.obtenDrawableIcon(lugar.getCategoria()
+					.getIcon());
 			imgViewIcono.setImageDrawable(icon);
 		} else {
 			view = inflater.inflate(R.layout.elemento_lista, null, true);
 			TextView textViewTitulo = (TextView) view
-				.findViewById(R.id.textViewTitulo);
+					.findViewById(R.id.textViewTitulo);
 			ImageView imgViewIcono = (ImageView) view.findViewById(R.id.icono);
 			TextView textViewInfo = (TextView) view
 					.findViewById(R.id.textViewInfo);
 			Lugar lugar = (Lugar) lista.elementAt(position);
 			textViewTitulo.setText(lugar.getNombre());
 			textViewInfo.setText(lugar.getUrl());
-			//textViewTitulo.setText(lista.elementAt(position));
+			// textViewTitulo.setText(lista.elementAt(position));
 			// pendiente textViewrUrl
-			
-			Drawable icon = recursoIcono.obtenDrawableIcon(lugar.getCategoria().getIcon());
+
+			Drawable icon = recursoIcono.obtenDrawableIcon(lugar.getCategoria()
+					.getIcon());
 			imgViewIcono.setImageDrawable(icon);
 		}
 		return view;
 	}
-	
 
 }

@@ -5,8 +5,6 @@ import java.util.Vector;
 import com.example.osmeuslugares.modelo.Categoria;
 import com.example.osmeuslugares.modelo.basedatos.LugaresDb;
 
-
-
 import android.app.Activity;
 import android.database.SQLException;
 import android.view.View;

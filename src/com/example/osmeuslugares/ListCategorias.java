@@ -25,7 +25,8 @@ public class ListCategorias extends ListActivity {
 	Bundle extras;
 	private LugaresDb db = new LugaresDb(this);
 
-	// falta poner categorias y los iconos que no se usan porque si no puedes poner 
+	// falta poner categorias y los iconos que no se usan porque si no puedes
+	// poner
 	// una categoria con el mismo icono
 
 	@Override
@@ -106,7 +107,7 @@ public class ListCategorias extends ListActivity {
 		if (id == R.id.cerrar) {
 			finish();
 		}
-		if (id == R.id.acerca_de){
+		if (id == R.id.acerca_de) {
 			Intent i = new Intent(this, AcercaDeActivity.class);
 			startActivity(i);
 		}
@@ -136,7 +137,7 @@ public class ListCategorias extends ListActivity {
 		Categoria categoria = (Categoria) listCategoriasAdapter
 				.getItem(info.position);
 		LugaresDb lugaresDb = new LugaresDb(this);
-		
+
 		switch (item.getItemId()) {
 
 		case R.id.edit_categoria:
@@ -147,8 +148,9 @@ public class ListCategorias extends ListActivity {
 
 		case R.id.delete_categoria:
 			lugaresDb.eliminarCategoria(categoria);
-			Toast.makeText(getBaseContext(), "Eliminar: " + categoria.getNombre(),
-					Toast.LENGTH_SHORT).show();
+			Toast.makeText(getBaseContext(),
+					"Eliminar: " + categoria.getNombre(), Toast.LENGTH_SHORT)
+					.show();
 			return true;
 
 		default:

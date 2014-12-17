@@ -29,18 +29,18 @@ public class MainActivity extends Activity {
 		// test crear BBDD
 
 		try {
-			//LugaresDb lugaresDb = new LugaresDb(getBaseContext());
+			// LugaresDb lugaresDb = new LugaresDb(getBaseContext());
 			Log.i("INFO", "BBDD creada");
 			Toast.makeText(getBaseContext(), "Base de datos preparada",
 					Toast.LENGTH_LONG).show();
 			// CategoriasDb categoriasDb = new CategoriasDb(getBaseContext());
 			// SQLiteDatabase db = lugaresDb.getWritableDatabase();
-			this.mediaPlayer = MediaPlayer.create(this,R.raw.musica_fondo);
+			this.mediaPlayer = MediaPlayer.create(this, R.raw.musica_fondo);
 		} catch (Exception e) {
 			Log.e(getClass().toString(), e.getMessage());
 		}
 
-		//se construye si lo usamos o no
+		// se construye si lo usamos o no
 		mediaPlayer = MediaPlayer.create(this, R.raw.musica_fondo);
 
 	}
@@ -70,7 +70,7 @@ public class MainActivity extends Activity {
 			lanzarListadoLugares();
 			break;
 		}
-		case R.id.listCategorias:{
+		case R.id.listCategorias: {
 			lanzarListadoCategorias();
 			break;
 		}
@@ -99,7 +99,7 @@ public class MainActivity extends Activity {
 		// TODO Auto-generated method stub
 		Intent i = new Intent(this, ListCategorias.class);
 		startActivity(i);
-		
+
 	}
 
 	/**

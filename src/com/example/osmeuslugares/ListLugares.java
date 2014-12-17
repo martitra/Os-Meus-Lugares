@@ -1,7 +1,5 @@
 package com.example.osmeuslugares;
 
-
-
 import com.example.osmeuslugares.modelo.CoordenadasGPS;
 import com.example.osmeuslugares.modelo.Lugar;
 import com.example.osmeuslugares.modelo.basedatos.LugaresDb;
@@ -41,11 +39,11 @@ public class ListLugares extends ListActivity {
 		// setListAdapter(new ListLugaresAdapter(this, vector));
 		// creado objeto adaptador
 		listLugaresAdapter = new ListLugaresAdapter(this);
-		//lee el fichero de preferencias y lo devuelve
+		// lee el fichero de preferencias y lo devuelve
 		listLugaresAdapter.setVerInfoAmpliada(getPreferenciaVerInfoAmpliada());
 		setListAdapter(listLugaresAdapter);
 
-		//Leer preferencia de info 
+		// Leer preferencia de info
 		boolean infoAmpliada = getPreferenciaVerInfoAmpliada();
 		if (infoAmpliada) {
 			Toast.makeText(getBaseContext(), "Info Ampliada ON",
@@ -54,7 +52,7 @@ public class ListLugares extends ListActivity {
 			Toast.makeText(getBaseContext(), "Info Ampliada OFF",
 					Toast.LENGTH_LONG).show();
 		}
-		
+
 	}
 
 	public void imageButtonAddLugarOnClick(View v) {
@@ -132,24 +130,26 @@ public class ListLugares extends ListActivity {
 			lanzarEditLugar(extras);
 			return true;
 		}
-		if(id == R.id.cerrar){
+		if (id == R.id.cerrar) {
 			finish();
 		}
-		if(id == R.id.acerca_de){
+		if (id == R.id.acerca_de) {
 			Intent i = new Intent(this, AcercaDeActivity.class);
 			startActivity(i);
 		}
-		
-		if(id == R.id.mi_localizacion){
+
+		if (id == R.id.mi_localizacion) {
 			CoordenadasGPS coordenadasGPS = null;
 			try {
 				coordenadasGPS = new CoordenadasGPS(this);
 				Location localizacion = coordenadasGPS.getLocalizacion();
 				localizacion.toString();
-				Toast.makeText(getBaseContext(), "GPS habilitado", Toast.LENGTH_SHORT).show();
+				Toast.makeText(getBaseContext(), "GPS habilitado",
+						Toast.LENGTH_SHORT).show();
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
-				Toast.makeText(getBaseContext(), e.getMessage(), Toast.LENGTH_SHORT).show();
+				Toast.makeText(getBaseContext(), e.getMessage(),
+						Toast.LENGTH_SHORT).show();
 			}
 		}
 		return super.onOptionsItemSelected(item);
@@ -170,22 +170,20 @@ public class ListLugares extends ListActivity {
 		inflater.inflate(R.menu.list_lugares_contextual, menu);
 	}
 
-	
 	@Override
-	//esto es para aguantar la pantalla
+	// esto es para aguantar la pantalla
 	public boolean onContextItemSelected(MenuItem item) {
 		AdapterContextMenuInfo info = (AdapterContextMenuInfo) item
 				.getMenuInfo();
 		Lugar lugar = (Lugar) listLugaresAdapter.getItem(info.position);
-		LugaresDb lugaresDb= new LugaresDb(this);
-		
+		LugaresDb lugaresDb = new LugaresDb(this);
+
 		switch (item.getItemId()) {
 		case R.id.visitar_pagina:
-			if(!lugar.getUrl().isEmpty()){
-				Intent i = new Intent(
-						Intent.ACTION_VIEW);
-					i.setData(Uri.parse(lugar.getUrl()));
-					startActivity(i);
+			if (!lugar.getUrl().isEmpty()) {
+				Intent i = new Intent(Intent.ACTION_VIEW);
+				i.setData(Uri.parse(lugar.getUrl()));
+				startActivity(i);
 			}
 			return true;
 		case R.id.marcar_telefono_lugar:
@@ -194,11 +192,11 @@ public class ListLugares extends ListActivity {
 		case R.id.envia_email:
 			lanzarEmail(lugar);
 			return true;
-		
+
 		case R.id.edit_lugar:
 			Toast.makeText(getBaseContext(), "Editar: " + lugar.getNombre(),
 					Toast.LENGTH_SHORT).show();
-			//llamar a editar
+			// llamar a editar
 			Bundle extras = lugar.getBundle();
 			extras.putBoolean("add", false);
 			lanzarEditLugar(extras);
@@ -208,7 +206,7 @@ public class ListLugares extends ListActivity {
 			Toast.makeText(getBaseContext(), "Eliminar: " + lugar.getNombre(),
 					Toast.LENGTH_SHORT).show();
 			lugaresDb.eliminarLugar(lugar);
-			//llamar a eliminar
+			// llamar a eliminar
 			return true;
 
 		default:
@@ -221,21 +219,21 @@ public class ListLugares extends ListActivity {
 
 		Intent i = new Intent(Intent.ACTION_SEND);
 		i.setType("message/rfc822");
-		String [] to = {"lag@fenandowirtz.com"};
-		String subject = "Lugar"+ lugar.getNombre();
+		String[] to = { "lag@fenandowirtz.com" };
+		String subject = "Lugar" + lugar.getNombre();
 		String body = lugar.toString();
 		i.putExtra(Intent.EXTRA_EMAIL, to);
 		i.putExtra(Intent.EXTRA_SUBJECT, subject);
 		i.putExtra(Intent.EXTRA_TEXT, body);
 		startActivity(i);
-		
+
 	}
 
 	private void lanzarMarcarTelefono(String telefono) {
 		// TODO Auto-generated method stub
-		if(!telefono.isEmpty()){
+		if (!telefono.isEmpty()) {
 			Intent i = new Intent(Intent.ACTION_CALL);
-			i.setData(Uri.parse("tel:"+telefono));
+			i.setData(Uri.parse("tel:" + telefono));
 			startActivity(i);
 		}
 	}

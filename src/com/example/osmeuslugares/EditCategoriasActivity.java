@@ -17,7 +17,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class EditCategoriasActivity extends Activity {
-	
+
 	private Categoria categoriaEdit;
 
 	private Spinner spinnerCategoria;
@@ -34,11 +34,11 @@ public class EditCategoriasActivity extends Activity {
 
 		// Nombre
 		editTextNombre = (TextView) findViewById(R.id.editTextNombre);
-		// Categoria 
+		// Categoria
 		spinnerCategoria = (Spinner) findViewById(R.id.spinnerCategoria);
 		categoriasAdapter = new SpinnerCategoriasAdapter(this);
 		spinnerCategoria.setAdapter(categoriasAdapter);
-		
+
 		categoriaEdit = new Categoria();
 		Bundle extras = new Bundle();
 		extras = getIntent().getExtras();
@@ -101,10 +101,11 @@ public class EditCategoriasActivity extends Activity {
 	private void establecerValoresEditar() {
 		// TODO Auto-generated method stub
 		editTextNombre.setText(categoriaEdit.getNombre());
-		
-		//int position = categoriasAdapter.getPositionById(categoriaEdit.getId());
+
+		// int position =
+		// categoriasAdapter.getPositionById(categoriaEdit.getId());
 		int position = 0;
-		
+
 		if (!add) {
 			long i = categoriaEdit.getId();
 			position = (int) i;
@@ -113,8 +114,6 @@ public class EditCategoriasActivity extends Activity {
 		spinnerCategoria.setSelection(position);
 
 	}
-	
-	
 
 	public void onClickGuardar(View v) {
 
@@ -130,11 +129,12 @@ public class EditCategoriasActivity extends Activity {
 		} else {
 			// poñer todo o de arriba pero con lugaredit
 
-			//Categoria editCategoria = new Categoria();
+			// Categoria editCategoria = new Categoria();
 
 			categoriaEdit.setId(categoriaEdit.getId());
 			categoriaEdit.setNombre(editTextNombre.getText().toString());
-			categoriaEdit.setIcon(spinnerCategoria.getSelectedItem().toString());
+			categoriaEdit
+					.setIcon(spinnerCategoria.getSelectedItem().toString());
 			// editLugar.setId();
 			db.editCategoria(categoriaEdit);
 			Toast.makeText(getBaseContext(), "Guardado", Toast.LENGTH_LONG)
@@ -158,14 +158,13 @@ public class EditCategoriasActivity extends Activity {
 		int id = item.getItemId();
 		switch (id) {
 
-		case R.id.action_settings: 
-		return true;
+		case R.id.action_settings:
+			return true;
 
 		default:
 			break;
 		}
-		
-		
+
 		return super.onOptionsItemSelected(item);
 	}
 
