@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+    
+<item
+        android:id="@+id/edit_lugar"
+        android:orderInCategory="100"
+        android:showAsAction="always"
+        android:title="@string/edit_lugar" 
+        android:visible="true" 
+        android:icon="@android:drawable/ic_menu_edit"
+/>
+    <item android:id="@+id/delete_lugar" 
+        android:icon="@android:drawable/ic_menu_delete" 
+        android:title="@string/edit_delete" 
+        android:visible="true" 
+        android:showAsAction="always">
+        
+    </item>
+    <item android:id="@+id/visitar_pagina"
+        android:title="@string/visitar_pagina"
+        android:visible="true"
+        android:showAsAction="always"
+        />
+    <item android:id="@+id/marcar_telefono_lugar" 
+        android:title="@string/marcar_telefono_lugar">
+        
+    </item>
+    <item android:id="@+id/envia_email" 
+        android:title="@string/enviar_email">
+        
+    </item>
+    
+    
+        
+        
+
+    
+</menu>

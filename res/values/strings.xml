@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Os Meus Lugares</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_list_lugares">ListLugares</string>
+    <string name="title_activity_acerca_de">AcercaDeActivity</string>
+    <string name="title_activity_preferencias">PreferenciasActivity</string>
+    <string name="acerca_de">Acerca De</string>
+    <string name="salir">Salir</string>
+    <string name="title_activity_edit_lugar">EditLugarActivity</string>
+    <string name="title_referencias">Referencias</string>
+    <string name="listlugares">Lista de lugares</string>
+    <string name="listLugares">Lista Lugares</string>
+    <string name="marta">Marta Galmán García</string>
+    <string name="add_lugar">Engadir Lugar</string>
+    <string name="edit_lugar">Editar Lugar</string>
+    <string name="edit_delete">Eliminar Lugar</string>
+    <string name="visitar_pagina">Visistar La Página Web</string>
+    <string name="list_categorias">Lista de Categorias</string>
+    <string name="add_categorias">Engadir Categoria</string>
+    <string name="edit_categoria">Editar Categoria</string>
+    <string name="delete_categoria">Eliminar Categoria</string>
+    <string name="marcar_telefono_lugar">Llamar</string>
+    <string name="enviar_email">Enviar E-Mail</string>
+    <string name="mi_localizacion">Localizacion</string>
+    <string name="cerrar">Cerrar</string>
+    <string name="textViewNombre">"Nombre "</string>
+    <string name="icon">Icono</string>
+
+</resources>
